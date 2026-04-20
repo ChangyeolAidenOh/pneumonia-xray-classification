@@ -87,29 +87,48 @@ Key finding: Viral pneumonia is the hardest class due to subtle radiographic dif
 
 The baseline (left) shows heavy NORMAL→VIRAL confusion (61 cases) due to class imbalance and no augmentation. After adding dropout, augmentation, and class-weighted loss (center), NORMAL recall improves from 148 to 187. With WeightedRandomSampler, AdamW, and layer freezing (right), ResNet18 reaches its ceiling at 88.1% — but NORMAL→VIRAL leakage (35 cases) persists.
 
-<p align="center">
-  <img src="figures/cm_resnet18_baseline.png" width="270"/>
-  <img src="figures/cm_resnet18_improved.png" width="270"/>
-  <img src="figures/cm_resnet18_adamw_wrs.png" width="270"/>
-</p>
+<table>
+  <tr>
+    <td><img src="figures/cm_resnet18_baseline.png" width="280"/></td>
+    <td><img src="figures/cm_resnet18_improved.png" width="280"/></td>
+    <td><img src="figures/cm_resnet18_adamw_wrs.png" width="280"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Baseline (76%)</b></td>
+    <td align="center"><b>+ Dropout, Augmentation (83%)</b></td>
+    <td align="center"><b>+ WRS, AdamW, Frozen (88.1%)</b></td>
+  </tr>
+</table>
 
 ### EfficientNet-B0: Architecture Upgrade
 
 Switching to EfficientNet-B0 with 3-channel input and ImageNet normalization pushes accuracy to ~91%. NORMAL correct predictions reach 216 (vs. 192 in best ResNet18), and the per-class AUPRC confirms VIRAL (0.883) as the most challenging class.
 
-<p align="center">
-  <img src="figures/cm_efficientnet_b0.png" width="370"/>
-  <img src="figures/prc_efficientnet_b0.png" width="370"/>
-</p>
+<table>
+  <tr>
+    <td><img src="figures/cm_efficientnet_b0.png" width="400"/></td>
+    <td><img src="figures/prc_efficientnet_b0.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Confusion Matrix</b></td>
+    <td align="center"><b>Precision-Recall Curve</b></td>
+  </tr>
+</table>
 
 ### 2-Stage Hierarchical Fine-Tuning
 
 The Stage 2 model, trained exclusively on BACTERIAL/VIRAL samples with the Stage 1 feature backbone, achieves 90.0% accuracy on the binary sub-task with AUROC 0.9552. VIRAL F1 improves from 0.831 → 0.866 (+3.5pp), precision from 0.817 → 0.881 (+6.4pp).
 
-<p align="center">
-  <img src="figures/cm_stage2_bv.png" width="370"/>
-  <img src="figures/prc_stage2_bv.png" width="370"/>
-</p>
+<table>
+  <tr>
+    <td><img src="figures/cm_stage2_bv.png" width="400"/></td>
+    <td><img src="figures/prc_stage2_bv.png" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Confusion Matrix (B/V)</b></td>
+    <td align="center"><b>Precision-Recall Curve (B/V)</b></td>
+  </tr>
+</table>
 
 ## Project Structure
 
