@@ -52,9 +52,9 @@ Data Reorganization ──→ 3-class (NORMAL / BACTERIAL / VIRAL)
 │  Stage 2: Hierarchical Fine-Tuning                      │
 │                                                         │
 │  Load Stage 1 (B0) feature backbone                     │
-│    → Train new head: BACTERIAL vs VIRAL only             │
+│    → Train new head: BACTERIAL vs VIRAL only            │
 │    → VIRAL Recall: 0.845 → 0.884                        │
-│    → Reduced cross-class misclassification               │
+│    → Reduced cross-class misclassification              │
 └─────────────────────────────────────────────────────────┘
 ```
 
