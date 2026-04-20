@@ -10,6 +10,20 @@ A deep learning pipeline for classifying pediatric chest X-rays into three categ
 **My Contribution**: All model architecture design, training pipeline, and evaluation code in this repository — from the initial ResNet18 baseline through EfficientNet transfer learning to the 2-stage hierarchical classifier.  
 **Note**: This repository contains only my contributions. Data collection and exploratory analysis were handled by other team members.
 
+## Full Project Scope
+
+The team explored five CNN architectures in parallel to find the best-performing 3-class classifier for this dataset. Each member independently designed, trained, and evaluated their assigned models, then results were compared across the team.
+
+| Architecture | Contributor | Best 3-Class Acc | Notes |
+|---|---|---|---|
+| VGG16 | Team member | 89.8% | Full-dataset training outperformed undersampled; 2-stage specialization tested |
+| AlexNet | Team member | ~85% | Balanced vs. unbalanced protocol comparison; subset retraining explored |
+| DenseNet-121 | Team member | 81% (3-class), 98% (binary) | Strong at Normal/Diseased separation; struggled with Bacterial/Viral boundary |
+| **ResNet18** | **Me (this repo)** | **88.1%** | Iterative improvement: baseline → dropout + augmentation → WeightedRandomSampler + AdamW |
+| **EfficientNet-B0/B1** | **Me (this repo)** | **~91%** | Transfer learning with 3-ch input; 2-stage hierarchical fine-tuning for VIRAL recall |
+
+A common finding across all models: distinguishing **Bacterial vs. Viral pneumonia** was the hardest sub-task, motivating the 2-stage hierarchical approach implemented in this repository.
+
 ## Pipeline
 
 ```
