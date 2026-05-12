@@ -4,7 +4,7 @@ A deep learning pipeline for classifying pediatric chest X-rays into three categ
 
 ## Project Overview
 
-**Course**: AMS 691 — Medical Image Analysis, Stony Brook University  
+**Course**: Academic Course Project  
 **Advisor**: Prof. Chenyu You  
 **Team**: 3-member team project  
 **My Contribution**: All model architecture design, training pipeline, and evaluation code in this repository — from the initial ResNet18 baseline through EfficientNet transfer learning to the 2-stage hierarchical classifier.  
@@ -253,4 +253,3 @@ np.random.seed(42)
 
 ## License
 
-This work was completed as part of the AMS 691 Medical Image Analysis course at Stony Brook University. Intended for academic research use.
